@@ -1,0 +1,43 @@
+{
+  "name": "ultimate-brew",
+  "version": "1.0.0",
+  "description": "App for brewing V60",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve src/index.html --open",
+    "build": "parcel build src/index.html",
+    "lint": "eslint --ext .svelte,.js src"
+  },
+  "author": "Denis Davydenko",
+  "license": "MIT",
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie 11",
+    "not ie_mob 11",
+    "not op_mini all",
+    "not op_mob > 0",
+    "not and_qq > 0",
+    "not android > 0"
+  ],
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-svelte": "^4.0.6",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
+    "sass": "^1.25.0",
+    "svelte": "^3.18.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,svelte}": ["eslint", "prettier --write"]
+  }
+}
