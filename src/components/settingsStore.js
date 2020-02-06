@@ -7,7 +7,8 @@ function createSettings() {
   return {
     subscribe,
     updateCoffee: coffee => {
-      const water = coffee ? (coffee / RATIO).toFixed(1) : 0;
+      const water =
+        coffee && coffee >= 0 ? (coffee.toFixed(1) / RATIO).toFixed(1) : 0;
 
       update(() => ({
         water,
@@ -15,7 +16,8 @@ function createSettings() {
       }));
     },
     updateWater: water => {
-      const coffee = water ? (water * RATIO).toFixed(1) : 0;
+      const coffee =
+        water && water >= 0 ? (water.toFixed(1) * RATIO).toFixed(1) : 0;
 
       update(() => ({
         water,
