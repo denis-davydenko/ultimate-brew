@@ -1,6 +1,8 @@
 <script>
   import Settings from './Settings.svelte';
   import Steps from './Steps.svelte';
+  import BrewTimer from './BrewTimer.svelte';
+  import Actions from './Actions.svelte';
 </script>
 
 <style>
@@ -15,16 +17,9 @@
   main {
     max-width: 300px;
     margin: 0 auto;
-    text-align: center;
-  }
-
-  .settings {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .brew-btn {
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   @media (min-width: 640px) {
@@ -40,11 +35,15 @@
     <a href="https://www.youtube.com/watch?v=AI4ynXzkSQo">By James Hoffmann</a>
   </p>
 </header>
-
 <main>
-  <div class="settings">
+  <section>
+    <BrewTimer />
     <Settings />
-  </div>
-  <Steps />
-  <button class="brew-btn">Brew! ☕</button>
+  </section>
+  <section>
+    <Steps />
+  </section>
+  <section>
+    <Actions />
+  </section>
 </main>

@@ -20,7 +20,9 @@
     "not and_qq > 0",
     "not android > 0"
   ],
+  "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.1",
@@ -38,6 +40,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,svelte}": ["eslint", "prettier --write"]
+    "*.{js,svelte}": [
+      "eslint",
+      "prettier --write"
+    ]
   }
 }

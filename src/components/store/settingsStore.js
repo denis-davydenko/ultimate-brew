@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { RATIO, DEFAULT_SETTINGS } from './consts';
+import { RATIO, DEFAULT_SETTINGS } from './../consts';
 
 function createSettings() {
   const { subscribe, update } = writable(DEFAULT_SETTINGS);
@@ -7,8 +7,7 @@ function createSettings() {
   return {
     subscribe,
     updateCoffee: coffee => {
-      const water =
-        coffee && coffee >= 0 ? (coffee.toFixed(1) / RATIO).toFixed(1) : 0;
+      const water = coffee && coffee >= 0 ? (+coffee / RATIO).toFixed(1) : 0;
 
       update(() => ({
         water,
@@ -16,8 +15,7 @@ function createSettings() {
       }));
     },
     updateWater: water => {
-      const coffee =
-        water && water >= 0 ? (water.toFixed(1) * RATIO).toFixed(1) : 0;
+      const coffee = water && water >= 0 ? (+water * RATIO).toFixed(1) : 0;
 
       update(() => ({
         water,
