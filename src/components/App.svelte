@@ -5,7 +5,7 @@
   import Actions from './Actions.svelte';
 </script>
 
-<style>
+<style type="text/postcss">
   header {
     text-align: center;
   }
@@ -22,7 +22,7 @@
     align-items: center;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     main {
       max-width: 500px;
     }

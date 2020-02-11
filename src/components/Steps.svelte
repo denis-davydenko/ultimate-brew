@@ -19,8 +19,8 @@
   }
 
   .active {
-    font-size: 1.25rem;
-    color: blue;
+    font-weight: bold;
+    color: var(--red-color);
   }
 </style>
 

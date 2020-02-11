@@ -3,38 +3,38 @@
   import { BrewingState } from './consts';
 </script>
 
-<style type="scss">
+<style type="text/postcss">
   .settings {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
 
-  .settings__row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
+    &__row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
 
-  .settings__row:last-of-type {
-    margin-bottom: 0;
-  }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
-  .settings__inputs {
-    display: flex;
-    margin-left: auto;
-  }
+    &__inputs {
+      display: flex;
+      margin-left: auto;
+    }
 
-  .settings__input {
-    margin-left: 0.5rem;
-    width: 80px;
-  }
+    &__input {
+      margin-left: 0.5rem;
+      width: 80px;
+    }
 
-  .settings__btn {
-    margin-left: 0.5rem;
-    width: 60px;
+    &__btn {
+      margin-left: 0.5rem;
+      width: 60px;
+    }
   }
 </style>
 

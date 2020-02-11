@@ -124,6 +124,7 @@
     margin-top: 0;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
       'Courier New', monospace;
+    color: var(--red-color);
   }
 </style>
 
