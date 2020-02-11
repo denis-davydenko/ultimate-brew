@@ -2,12 +2,16 @@
   import { STEPS, AMOUNT_PLACEHOLDER } from './consts';
   import { settings, activeStepIndex } from './store';
 
-  function formatMessage(step) {
+  let steps = [];
+
+  function formatMessage(step, settings) {
     return step.message.replace(
       AMOUNT_PLACEHOLDER,
-      ((step.valuePercentOnStep / 100) * $settings.water).toFixed(1)
+      ((step.valuePercentOnStep / 100) * settings.water).toFixed(1)
     );
   }
+
+  $: steps = STEPS.map(s => formatMessage(s, $settings));
 </script>
 
 <style>
@@ -25,7 +29,7 @@
 </style>
 
 <ul>
-  {#each STEPS as step, i}
-    <li class:active={i === $activeStepIndex}>{formatMessage(step)}</li>
+  {#each steps as step, i}
+    <li class:active={i === $activeStepIndex}>{step}</li>
   {/each}
 </ul>

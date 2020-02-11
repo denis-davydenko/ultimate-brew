@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
+  import { onDestroy } from 'svelte';
   import { STEPS, BrewingState } from './consts';
   import { brewingState, activeStepIndex, settings } from './store';
   import { formatTime } from './utils';
@@ -13,22 +13,20 @@
   let time = '';
   let amount = 0;
 
-  onMount(() => {
-    steps = STEPS.reduce((acc, step, index) => {
-      const prevStep =
-        index > 0 ? acc[index - 1] : { amountAfter: 0, durationAfter: 0 };
-      const amount = (step.valuePercentOnStep / 100) * $settings.water;
+  $: steps = STEPS.reduce((acc, step, index) => {
+    const prevStep =
+      index > 0 ? acc[index - 1] : { amountAfter: 0, durationAfter: 0 };
+    const amount = (step.valuePercentOnStep / 100) * $settings.water;
 
-      acc.push({
-        duration: step.duration,
-        durationAfter: step.duration + prevStep.durationAfter,
-        amount,
-        amountAfter: amount + prevStep.amountAfter
-      });
+    acc.push({
+      duration: step.duration,
+      durationAfter: step.duration + prevStep.durationAfter,
+      amount,
+      amountAfter: amount + prevStep.amountAfter
+    });
 
-      return acc;
-    }, []);
-  });
+    return acc;
+  }, []);
 
   function timerTick() {
     frame = requestAnimationFrame(timerTick);
@@ -54,6 +52,7 @@
       activeStepIndex.set($activeStepIndex + 1);
     } else {
       activeStepIndex.set(null);
+      this.brewingState.idle();
       return;
     }
 
