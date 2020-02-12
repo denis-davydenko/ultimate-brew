@@ -13,5 +13,3 @@ function createBrewingState() {
 }
 
 export const brewingState = createBrewingState();
-
-export const activeStepIndex = writable(null);
