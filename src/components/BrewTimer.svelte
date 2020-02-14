@@ -11,23 +11,18 @@
   let time = '';
   let amount = 0;
 
-  function timerTick() {
-    frame = requestAnimationFrame(timerTick);
-
+  function timerTick(time) {
     if ($activeStep.duration - elapsedForStep <= 0) {
       cancelAnimationFrame(frame);
       nextStep();
+      return;
     }
 
-    const time = window.performance.now();
-
-    elapsedForStep += Math.min(
-      time - lastTime,
-      $activeStep.duration - elapsedForStep
-    );
+    elapsedForStep += time - lastTime;
+    amountOnStep = ($activeStep.amount / $activeStep.duration) * elapsedForStep;
     lastTime = time;
 
-    amountOnStep = ($activeStep.amount / $activeStep.duration) * elapsedForStep;
+    frame = requestAnimationFrame(timerTick);
   }
 
   function nextStep() {
@@ -42,7 +37,7 @@
     lastTime = window.performance.now();
     elapsedForStep = 0;
 
-    timerTick();
+    frame = requestAnimationFrame(timerTick);
   }
 
   function reset() {
@@ -61,7 +56,7 @@
     }
 
     lastTime = window.performance.now();
-    timerTick();
+    frame = requestAnimationFrame(timerTick);
   }
 
   onDestroy(() => {
