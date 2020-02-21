@@ -7,5 +7,5 @@ export function formatTime(time) {
   const minutes = secondsToMinutes(time);
   const remainingSeconds = (time % 60).toFixed(2);
 
-  return `${padWithZeroes(minutes)}:${padWithZeroes(remainingSeconds, 6)}`;
+  return `${padWithZeroes(minutes)}:${padWithZeroes(remainingSeconds, 5)}`;
 }
