@@ -8,10 +8,6 @@
     <button on:click={brewingState.start}>Brew! ☕</button>
   {/if}
   {#if $brewingState === BrewingState.brewing}
-    <button on:click={brewingState.pause}>Pause</button>
     <button on:click={brewingState.cancel}>Cancel</button>
-  {/if}
-  {#if $brewingState === BrewingState.paused}
-    <button on:click={brewingState.start}>Continue</button>
   {/if}
 </div>

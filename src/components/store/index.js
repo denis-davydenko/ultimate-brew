@@ -1,3 +1,3 @@
 export * from './settingsStore';
-export * from './brewingStateStore';
+export * from './brewingStore';
 export * from './stepsStore';
