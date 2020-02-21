@@ -1,8 +1,18 @@
 import { writable } from 'svelte/store';
-import { RATIO, DEFAULT_SETTINGS } from './../consts';
+import { RATIO, DEFAULT_SETTINGS, SETTINGS_KEY } from './../consts';
+
+function getFromLocalStorage() {
+  const settings = localStorage.getItem(SETTINGS_KEY);
+
+  return settings && settings.length ? JSON.parse(settings) : DEFAULT_SETTINGS;
+}
+
+function saveToLocalStorage(settings) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+}
 
 function createSettings() {
-  const { subscribe, update } = writable(DEFAULT_SETTINGS);
+  const { subscribe, update } = writable(getFromLocalStorage());
 
   return {
     subscribe,
@@ -26,3 +36,5 @@ function createSettings() {
 }
 
 export const settings = createSettings();
+
+settings.subscribe(saveToLocalStorage);
