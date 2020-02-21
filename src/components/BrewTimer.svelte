@@ -9,8 +9,7 @@
   h2 {
     text-align: center;
     margin-top: 0;
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace;
+    font-family: var(--font-mono);
     color: var(--red-color);
   }
 </style>
