@@ -1,6 +1,7 @@
 import { derived, writable } from 'svelte/store';
 import { settings } from './settingsStore';
 import { AMOUNT_PLACEHOLDER } from './../consts';
+import { play } from './audio';
 
 export const STEPS = [
   {
@@ -92,14 +93,10 @@ export const activeStep = derived(
   }
 );
 
-const audio = new Audio('bing.mp3');
-
 activeStepIndex.subscribe(index => {
   if (index == null) {
     return;
   }
 
-  audio.pause();
-  audio.currentTime = 0;
-  audio.play();
+  play();
 });
