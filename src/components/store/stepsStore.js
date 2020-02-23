@@ -93,8 +93,13 @@ export const activeStep = derived(
 );
 
 const audio = new Audio('bing.mp3');
-activeStep.subscribe(step => {
-  if (step != null) {
-    audio.play();
+
+activeStepIndex.subscribe(index => {
+  if (index == null) {
+    return;
   }
+
+  audio.pause();
+  audio.currentTime = 0;
+  audio.play();
 });
