@@ -91,3 +91,10 @@ export const activeStep = derived(
     return $steps[$activeStepIndex] || null;
   }
 );
+
+const audio = new Audio('bing.mp3');
+activeStep.subscribe(step => {
+  if (step != null) {
+    audio.play();
+  }
+});
