@@ -32,6 +32,7 @@
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-static-files-copy": "^2.3.1",
     "parcel-plugin-svelte": "^4.0.6",
+    "parcel-plugin-sw-cache": "^0.3.1",
     "postcss": "^7.0.26",
     "postcss-load-config": "^2.1.0",
     "postcss-media-minmax": "^4.0.0",
@@ -51,5 +52,18 @@
       "eslint",
       "prettier --write"
     ]
+  },
+  "cache": {
+    "clearDist": true,
+    "disablePlugin": false,
+    "globPatterns": [
+      "**/*.{html,js,css,jpg,png,webp,mp3}"
+    ],
+    "inDev": true,
+    "strategy": "default"
+  },
+  "staticFiles": {
+    "staticPath": "src/assets/static",
+    "watcherGlob": "**"
   }
 }

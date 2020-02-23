@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta charset="utf8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbecda" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="Description" content="App for brewing V60 coffee" />
 
     <title>Ultimate Brew</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <link rel="icon" sizes="32x32" href="./assets/icons/favicon-32x32.png" />
+    <link rel="icon" sizes="16x16" href="./assets/icons/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/apple-touch-icon.png"
+    />
   </head>
 
   <body>
     <script defer src="./index.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        const x = 'sw.js';
+        navigator.serviceWorker
+          .register(x)
+          .then(registration => {
+            console.log(
+              'Registration successful, scope is:',
+              registration.scope
+            );
+          })
+          .catch(error => {
+            console.log('Service worker registration failed, error:', error);
+          });
+      }
+    </script>
   </body>
 </html>
