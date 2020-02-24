@@ -60,7 +60,7 @@
     "clearDist": true,
     "disablePlugin": false,
     "globPatterns": [
-      "**/*.{html,js,css,jpg,png,webp,mp3}"
+      "**/*.{html,js,css,jpg,png,webp,mp3,webm}"
     ],
     "inDev": true,
     "strategy": "default"
