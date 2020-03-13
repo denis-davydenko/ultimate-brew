@@ -1,6 +1,7 @@
 <script>
-  import { settings, brewingState } from './store';
+  import { settings, brewingState, selectedRecipeId } from './store';
   import { BrewingState } from './consts';
+  import { RECIPES } from './recipes';
 </script>
 
 <style type="text/postcss">
@@ -31,6 +32,10 @@
       width: 80px;
     }
 
+    &__selector {
+      width: 216px;
+    }
+
     &__btn {
       margin-left: 0.5rem;
       width: 60px;
@@ -40,6 +45,16 @@
 
 {#if $brewingState === BrewingState.idle}
   <div class="settings">
+    <div class="settings__row">
+      <label for="recipe">Recipe</label>
+      <div class="settings__inputs">
+        <select class="settings__selector" bind:value={$selectedRecipeId}>
+          {#each RECIPES as recipe}
+            <option value={recipe.id}>{recipe.name}</option>
+          {/each}
+        </select>
+      </div>
+    </div>
     <div class="settings__row">
       <label for="coffee">Coffee, gr</label>
       <div class="settings__inputs">

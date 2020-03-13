@@ -31,11 +31,6 @@
 
 <header>
   <h1>Ultimate Brew</h1>
-  <p>
-    <a href="https://www.youtube.com/watch?v=AI4ynXzkSQo">
-      V60 brew method by James Hoffmann
-    </a>
-  </p>
 </header>
 <main>
   <section>
