@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import { RATIO, DEFAULT_SETTINGS, SETTINGS_KEY } from '../consts';
 import { selectedRecipe } from './recipeStore';
-import { getFromStorage, saveToStorage } from '../storage';
+import { getFromStorage, saveToStorage } from '../utils';
 
 function createSettings() {
   const defaultSettings = getFromStorage(SETTINGS_KEY) || DEFAULT_SETTINGS;

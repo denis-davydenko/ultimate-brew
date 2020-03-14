@@ -1,7 +1,7 @@
 import { writable, derived } from 'svelte/store';
 import { RECIPES } from '../recipes';
 import { RECIPE_KEY } from '../consts';
-import { getFromStorage, saveToStorage } from '../storage';
+import { getFromStorage, saveToStorage } from '../utils';
 
 const recipeId = getFromStorage(RECIPE_KEY) || RECIPES[0].id;
 

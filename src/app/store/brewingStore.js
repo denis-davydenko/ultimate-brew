@@ -1,7 +1,7 @@
 import { writable, derived } from 'svelte/store';
 import { BrewingState } from '../consts';
 import { activeStepIndex, steps } from './stepsStore';
-import { createTimer } from './timer';
+import { createTimer } from '../utils';
 
 function createBrewingState() {
   const { subscribe, set } = writable(BrewingState.idle);

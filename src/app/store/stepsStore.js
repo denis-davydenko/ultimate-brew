@@ -2,7 +2,7 @@ import { derived, writable } from 'svelte/store';
 import { settings } from './settingsStore';
 import { selectedRecipe } from './recipeStore';
 import { AMOUNT_PLACEHOLDER } from '../consts';
-import { play } from './audio';
+import { play } from '../utils';
 
 function formatMessage(step, settings) {
   return step.message.replace(
