@@ -1,5 +1,5 @@
 <script>
-  import { appState, AppState, activeStep, brewingState } from './store';
+  import { activeStep, brewingState } from './store';
   import { formatTime } from './utils';
 </script>
 
@@ -13,11 +13,7 @@
   }
 </style>
 
-{#if $appState !== AppState.idle}
-  <h1>
-    {$brewingState.amount.toFixed(1)}/{$activeStep.amountAfter.toFixed(1)}
-  </h1>
-  <h2>
-    <time>{formatTime($brewingState.elapsedTime)}</time>
-  </h2>
-{/if}
+<h1>{$brewingState.amount.toFixed(1)}/{$activeStep.amountAfter.toFixed(1)}</h1>
+<h2>
+  <time>{formatTime($brewingState.elapsedTime)}</time>
+</h2>

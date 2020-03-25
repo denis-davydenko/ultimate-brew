@@ -3,6 +3,7 @@
   import Steps from './Steps.svelte';
   import BrewTimer from './BrewTimer.svelte';
   import Actions from './Actions.svelte';
+  import { appState, AppState } from './store';
 </script>
 
 <style type="text/postcss">
@@ -34,8 +35,12 @@
 </header>
 <main>
   <section>
-    <BrewTimer />
-    <Settings />
+    {#if $appState === AppState.idle}
+      <Settings />
+    {/if}
+    {#if $appState === AppState.brewing}
+      <BrewTimer />
+    {/if}
   </section>
   <section>
     <Steps />
