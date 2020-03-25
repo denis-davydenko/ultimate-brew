@@ -1,6 +1,5 @@
 <script>
-  import { settings, brewingState, selectedRecipeId } from './store';
-  import { BrewingState } from './consts';
+  import { settings, appState, AppState, selectedRecipeId } from './store';
   import { RECIPES } from './recipes';
 </script>
 
@@ -43,7 +42,7 @@
   }
 </style>
 
-{#if $brewingState === BrewingState.idle}
+{#if $appState === AppState.idle}
   <div class="settings">
     <div class="settings__row">
       <label for="recipe">Recipe</label>
