@@ -46,7 +46,7 @@
   <div class="settings__row">
     <label for="recipe">Recipe</label>
     <div class="settings__inputs">
-      <select class="settings__selector" bind:value={$selectedRecipeId}>
+      <select class="select settings__selector" bind:value={$selectedRecipeId}>
         {#each RECIPES as recipe}
           <option value={recipe.id}>{recipe.name}</option>
         {/each}
@@ -58,17 +58,23 @@
     <div class="settings__inputs">
       <input
         id="coffee"
-        class="settings__input"
+        class="input settings__input"
         min={0}
         max={100}
         type="number"
         value={$settings.coffee}
         on:input={e => settings.updateCoffee(e.target.value)}
       />
-      <button class="settings__btn" on:click={() => settings.updateCoffee(15)}>
+      <button
+        class="button button--no-horizontal-padding settings__btn"
+        on:click={() => settings.updateCoffee(15)}
+      >
         15
       </button>
-      <button class="settings__btn" on:click={() => settings.updateCoffee(30)}>
+      <button
+        class="button button--no-horizontal-padding settings__btn"
+        on:click={() => settings.updateCoffee(30)}
+      >
         30
       </button>
     </div>
@@ -78,17 +84,23 @@
     <div class="settings__inputs">
       <input
         id="water"
-        class="settings__input"
+        class="input settings__input"
         min={0}
         max={1000}
         type="number"
         value={$settings.water}
         on:input={e => settings.updateWater(e.target.value)}
       />
-      <button class="settings__btn" on:click={() => settings.updateWater(250)}>
+      <button
+        class="button button--no-horizontal-padding settings__btn"
+        on:click={() => settings.updateWater(250)}
+      >
         250
       </button>
-      <button class="settings__btn" on:click={() => settings.updateWater(500)}>
+      <button
+        class="button button--no-horizontal-padding settings__btn"
+        on:click={() => settings.updateWater(500)}
+      >
         500
       </button>
     </div>

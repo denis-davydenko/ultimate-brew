@@ -31,6 +31,7 @@
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
+    "modern-css-reset": "^1.1.0",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-static-files-copy": "^2.3.1",
@@ -58,7 +59,7 @@
   },
   "cache": {
     "clearDist": true,
-    "disablePlugin": false,
+    "disablePlugin": true,
     "globPatterns": [
       "**/*.{html,js,css,jpg,png,webp,mp3,webm}"
     ],

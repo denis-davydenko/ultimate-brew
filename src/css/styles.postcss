@@ -1,0 +1,150 @@
+@import 'modern-css-reset/dist/reset.css';
+
+:root {
+  --red-color: #d4583b;
+  --font-main: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --border-radius: 6px;
+  --coffee-color: #7f7571;
+  --white-color: #f5f5f5;
+  --main: var(--coffee-color);
+  --primary: var(--white-color);
+  --background: var(--main);
+  --text-color: var(--primary);
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: var(--text-color);
+  background-color: var(--background);
+}
+
+.button {
+  outline: none;
+  margin: 0;
+  padding: 0.4rem 1.6rem;
+  font-size: inherit;
+  font-weight: 500;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  background: var(--main);
+  color: var(--primary);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--primary);
+    color: var(--main);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+
+  &--primary {
+    border: 1px solid transparent;
+    background: var(--primary);
+    color: var(--main);
+
+    &:hover {
+      border: 1px solid var(--primary);
+      background: var(--main);
+      color: var(--primary);
+    }
+
+    &:focus {
+      background: var(--main);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+
+    &:active {
+      border: 1px solid var(--primary);
+      background: var(--main);
+      color: var(--primary);
+    }
+  }
+
+  &--no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.select {
+  outline: none;
+  padding: 0.4rem 1.6rem;
+  font-size: inherit;
+  font-weight: 500;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  display: block;
+  width: auto;
+  text-align: center;
+  background: var(--main);
+  color: var(--primary);
+  cursor: pointer;
+  background-position: top 55% right 0.35em;
+  background-size: 0.5em;
+  background-repeat: no-repeat;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(245, 245, 245)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
+
+  &:hover {
+    color: var(--main);
+    background: var(--primary);
+    background-position: top 55% right 0.35em;
+    background-size: 0.5em;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(127, 117, 113)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+}
+
+.input {
+  outline: none;
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  font-size: inherit;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  background: var(--main);
+  color: var(--primary);
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 1px var(--primary);
+  }
+}
