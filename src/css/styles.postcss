@@ -41,8 +41,11 @@ html {
 body {
   padding: 0;
   margin: 0;
+  max-height: var(--max-height);
+  min-height: var(--max-height);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   font-family: var(--font-main);
   font-size: 1.8rem;
   line-height: normal;
