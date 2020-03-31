@@ -63,7 +63,7 @@
     "globPatterns": [
       "**/*.{html,js,css,jpg,png,webp,mp3,webm}"
     ],
-    "inDev": true,
+    "inDev": false,
     "strategy": "default"
   },
   "staticFiles": {

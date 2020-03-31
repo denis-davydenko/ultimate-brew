@@ -5,7 +5,7 @@
 <div>
   {#if $appState === AppState.idle}
     <button class="button button--primary" on:click={appState.brew}>
-      Brew! ☕
+      Brew!
     </button>
   {/if}
   {#if $appState === AppState.brewing}

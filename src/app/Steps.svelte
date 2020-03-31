@@ -2,22 +2,29 @@
   import { activeStep, steps } from './store';
 </script>
 
-<style>
-  ul {
-    width: 350px;
-    padding-left: 0;
-    list-style: none;
-    text-align: center;
+<style type="text/postcss">
+  .steps {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.8rem;
   }
 
-  .active {
-    font-weight: bold;
-    color: var(--red-color);
+  .step {
+    padding: 0.4rem 0;
+    text-align: center;
+
+    &--active {
+      border: 1px solid var(--primary);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+    }
   }
 </style>
 
-<ul>
+<ul class="steps">
   {#each $steps as step}
-    <li class:active={step === $activeStep}>{step.message}</li>
+    <li class="step" class:step--active={step === $activeStep}>
+      {step.message}
+    </li>
   {/each}
 </ul>
