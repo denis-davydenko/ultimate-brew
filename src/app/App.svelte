@@ -13,28 +13,24 @@
     height: calc(var(--max-width) / var(--display-ratio));
     margin: 0 auto;
     padding: 2rem 1rem;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    grid-gap: 2rem;
+    display: flex;
+    flex-direction: column;
 
     &__header {
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     &__steps {
+      flex: 1;
+      margin-top: 2rem;
       overflow-y: scroll;
     }
 
     &__actions {
+      margin-top: 2rem;
       text-align: center;
     }
-  }
-
-  .steps {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    align-items: center;
   }
 </style>
 
@@ -51,10 +47,8 @@
     {/if}
   </div>
 
-  <div class="app__steps steps">
-    <div>
-      <Steps />
-    </div>
+  <div class="app__steps">
+    <Steps />
   </div>
 
   <div class="app__actions">
