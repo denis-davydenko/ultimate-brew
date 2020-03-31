@@ -1,7 +1,7 @@
 {
   "name": "ultimate-brew",
   "version": "1.0.0",
-  "description": "App for brewing V60",
+  "description": "App for brewing a perfect cup of coffee",
   "main": "index.js",
   "scripts": {
     "start": "parcel serve src/index.html --open",
