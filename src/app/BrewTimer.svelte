@@ -1,6 +1,6 @@
 <script>
   import { activeStep, brewingState } from './store';
-  import { formatTime } from './utils';
+  import { formatTime, formatAmount } from './utils';
 </script>
 
 <style type="text/postcss">
@@ -65,12 +65,12 @@
 <div class="timer">
   <div class="timer__info timer__info--now timer-info">
     <legend class="timer-info__legend">now</legend>
-    <h2 class="timer-info__amount">{$brewingState.amount.toFixed(1)}</h2>
+    <h2 class="timer-info__amount">{formatAmount($brewingState.amount)}</h2>
     <h3 class="timer-info__time">{formatTime($brewingState.elapsedTime)}</h3>
   </div>
   <div class="timer__info timer-info">
     <legend class="timer-info__legend">step</legend>
-    <h2 class="timer-info__amount">{$activeStep.amountAfter.toFixed(1)}</h2>
+    <h2 class="timer-info__amount">{formatAmount($activeStep.amountAfter)}</h2>
     <h3 class="timer-info__time">{formatTime($activeStep.durationAfter)}</h3>
   </div>
   <div class="timer__legend-container">
