@@ -6,6 +6,7 @@
   .steps {
     display: flex;
     flex-direction: column;
+    padding: 0 0.4rem;
   }
 
   .step {
