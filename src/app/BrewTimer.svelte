@@ -78,7 +78,7 @@
       <h3 class="timer-info__time">{formatTime($activeStep.durationAfter)}</h3>
     </div>
     <div class="timer__legend-container">
-      <legend class="timer__legend">ml</legend>
+      <legend class="timer__legend">g</legend>
       <legend class="timer__legend timer__legend--min">min</legend>
     </div>
   </div>

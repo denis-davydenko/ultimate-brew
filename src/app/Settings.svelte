@@ -57,7 +57,7 @@
   </div>
 
   <div class="settings__row settings-row">
-    <label class="settings-row__label" for="coffee">Coffee, gr</label>
+    <label class="settings-row__label" for="coffee">Coffee, g</label>
     <div class="settings-row__inputs">
       <input
         id="coffee"
