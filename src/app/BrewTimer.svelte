@@ -62,20 +62,23 @@
   }
 </style>
 
-<div class="timer">
-  <div class="timer__info timer__info--now timer-info">
-    <legend class="timer-info__legend">now</legend>
-    <h2 class="timer-info__amount">{formatAmount($brewingState.amount)}</h2>
-    <h3 class="timer-info__time">{formatTime($brewingState.elapsedTime)}</h3>
+{#if $activeStep != null}
+  <div class="timer">
+    <div class="timer__info timer__info--now timer-info">
+      <legend class="timer-info__legend">now</legend>
+      <h2 class="timer-info__amount">{formatAmount($brewingState.amount)}</h2>
+      <h3 class="timer-info__time">{formatTime($brewingState.elapsedTime)}</h3>
+    </div>
+    <div class="timer__info timer-info">
+      <legend class="timer-info__legend">step</legend>
+      <h2 class="timer-info__amount">
+        {formatAmount($activeStep.amountAfter)}
+      </h2>
+      <h3 class="timer-info__time">{formatTime($activeStep.durationAfter)}</h3>
+    </div>
+    <div class="timer__legend-container">
+      <legend class="timer__legend">ml</legend>
+      <legend class="timer__legend timer__legend--min">min</legend>
+    </div>
   </div>
-  <div class="timer__info timer-info">
-    <legend class="timer-info__legend">step</legend>
-    <h2 class="timer-info__amount">{formatAmount($activeStep.amountAfter)}</h2>
-    <h3 class="timer-info__time">{formatTime($activeStep.durationAfter)}</h3>
-  </div>
-  <div class="timer__legend-container">
-    <legend class="timer__legend">ml</legend>
-    <legend class="timer__legend timer__legend--min">min</legend>
-
-  </div>
-</div>
+{/if}
