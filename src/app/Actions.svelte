@@ -3,10 +3,8 @@
 </script>
 
 {#if $appState === AppState.idle}
-  <button class="button button--primary" on:click={appState.brew}>Brew!</button>
+  <button class="button" on:click={appState.brew}>Brew!</button>
 {/if}
 {#if $appState === AppState.brewing}
-  <button class="button button--primary" on:click={appState.stop}>
-    Cancel
-  </button>
+  <button class="button" on:click={appState.stop}>Cancel</button>
 {/if}

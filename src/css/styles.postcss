@@ -68,54 +68,34 @@ h1 {
   height: 3.6rem;
   margin: 0;
   padding: 0.4rem 1.6rem;
-  font-size: inherit;
-  font-weight: 500;
-  border: 1px solid var(--primary);
-  border-radius: var(--border-radius);
   display: inline-block;
   width: auto;
+  font-size: inherit;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  background: var(--primary);
+  color: var(--main);
   text-align: center;
-  background: var(--main);
-  color: var(--primary);
   cursor: pointer;
 
   &:hover {
-    background: var(--primary);
-    color: var(--main);
+    border: 1px solid var(--primary);
+    background: var(--main);
+    color: var(--primary);
   }
 
   &:focus {
+    background: var(--main);
+    color: var(--primary);
+    border: 1px solid var(--primary);
     box-shadow: 0 0 0 1px var(--primary);
   }
 
   &:active {
-    transform: translateY(1px);
-    filter: saturate(150%);
-  }
-
-  &--primary {
-    border: 1px solid transparent;
-    background: var(--primary);
-    color: var(--main);
-
-    &:hover {
-      border: 1px solid var(--primary);
-      background: var(--main);
-      color: var(--primary);
-    }
-
-    &:focus {
-      background: var(--main);
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      box-shadow: 0 0 0 1px var(--primary);
-    }
-
-    &:active {
-      border: 1px solid var(--primary);
-      background: var(--main);
-      color: var(--primary);
-    }
+    border: 1px solid var(--primary);
+    background: var(--main);
+    color: var(--primary);
   }
 
   &--no-horizontal-padding {
@@ -135,8 +115,8 @@ h1 {
   display: block;
   width: auto;
   text-align: center;
-  background: var(--main);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--main);
   cursor: pointer;
   background-position: top 55% right 0.35em;
   background-size: 0.5em;
@@ -144,15 +124,15 @@ h1 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(245, 245, 245)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(127, 117, 113)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
 
   &:hover {
-    color: var(--main);
-    background: var(--primary);
+    color: var(--primary);
+    background: var(--main);
     background-position: top 55% right 0.35em;
     background-size: 0.5em;
     background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(127, 117, 113)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(245, 245, 245)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
   }
 
   &:focus {
