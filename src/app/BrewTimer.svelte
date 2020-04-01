@@ -47,6 +47,7 @@
     padding: 0 1rem;
 
     &__legend {
+      width: 100%;
       font-size: 1.6rem;
     }
 

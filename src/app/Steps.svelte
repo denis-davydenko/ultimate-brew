@@ -6,11 +6,10 @@
   .steps {
     display: flex;
     flex-direction: column;
-    padding: 0 0.8rem;
   }
 
   .step {
-    padding: 0.4rem 0;
+    padding: 0.4rem 0.8rem;
     text-align: center;
 
     &--active {

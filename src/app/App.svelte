@@ -11,6 +11,7 @@
     max-width: var(--max-width);
     max-height: var(--max-height);
     height: calc(var(--max-width) / var(--display-ratio));
+    width: var(--max-width);
     margin: 0 auto;
     padding: 2rem 1rem;
     display: flex;
@@ -19,6 +20,14 @@
     &__header {
       text-align: center;
       margin-bottom: 2rem;
+    }
+
+    &__timer,
+    &__settings {
+      flex: 0 0 13rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     &__steps {
@@ -38,14 +47,16 @@
   <header class="app__header">
     <h1>Ultimate Brew</h1>
   </header>
-  <div>
-    {#if $appState === AppState.idle}
+  {#if $appState === AppState.idle}
+    <div class="app__settings">
       <Settings />
-    {/if}
-    {#if $appState === AppState.brewing}
+    </div>
+  {/if}
+  {#if $appState === AppState.brewing}
+    <div class="app__timer">
       <BrewTimer />
-    {/if}
-  </div>
+    </div>
+  {/if}
 
   <div class="app__steps">
     <Steps />
