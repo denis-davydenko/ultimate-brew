@@ -1,5 +1,38 @@
 <script>
+  import { tweened } from 'svelte/motion';
   import { activeStep, steps } from './store';
+  import { ONE_SEC } from './consts';
+
+  let progress = tweened(0, { duration: 0 });
+  $: {
+    if ($activeStep != null) {
+      progress
+        .set(0, { duration: 0 })
+        .then(() =>
+          progress.set(100, { duration: $activeStep.duration * ONE_SEC })
+        );
+    } else {
+      progress.set(0, { duration: 0 });
+    }
+  }
+
+  let activeStepStyle = '',
+    activeStepTextStyle = '';
+  $: {
+    if ($progress != null) {
+      activeStepStyle = `background-image: linear-gradient(90deg, var(--primary) ${$progress}%, transparent ${$progress}%)`;
+      activeStepTextStyle = `background-image: linear-gradient(90deg, var(--main) ${$progress}%, var(--primary) ${$progress}%)`;
+    } else {
+      activeStepStyle = activeStepTextStyle = '';
+    }
+  }
+
+  let activeStepElement;
+  $: {
+    if (activeStepElement) {
+      activeStepElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
 <style type="text/postcss">
@@ -12,19 +45,50 @@
   .step {
     padding: 0.4rem 0.8rem;
     text-align: center;
+    background: transparent;
+    border: 1px solid transparent;
+    background-image: linear-gradient(90deg, var(--primary) 0%, transparent 0%);
+
+    &__text {
+      display: block;
+      width: 100%;
+      background: var(--primary);
+      color: transparent;
+      background-clip: text;
+      background-image: linear-gradient(
+        90deg,
+        var(--main) 0%,
+        var(--primary) 0%
+      );
+    }
 
     &--active {
       border: 1px solid var(--primary);
       border-radius: var(--border-radius);
-      font-weight: 500;
+
+      .step__text {
+        font-weight: 500;
+      }
     }
   }
 </style>
 
 <ul class="steps">
   {#each $steps as step}
-    <li class="step" class:step--active={step === $activeStep}>
-      {step.message}
-    </li>
+    {#if step === $activeStep}
+      <li
+        bind:this={activeStepElement}
+        class="step step--active"
+        style={activeStepStyle}
+      >
+        <span class="step__text" style={activeStepTextStyle}>
+          {step.message}
+        </span>
+      </li>
+    {:else}
+      <li class="step">
+        <span class="step__text">{step.message}</span>
+      </li>
+    {/if}
   {/each}
 </ul>
