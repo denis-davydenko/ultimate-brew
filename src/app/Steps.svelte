@@ -43,14 +43,14 @@
   }
 
   .step {
-    padding: 0.4rem 0.8rem;
-    text-align: center;
     background: transparent;
     border: 1px solid transparent;
     background-image: linear-gradient(90deg, var(--primary) 0%, transparent 0%);
 
     &__text {
       display: block;
+      padding: 0.4rem 0.8rem;
+      text-align: center;
       width: 100%;
       background: var(--primary);
       color: transparent;
