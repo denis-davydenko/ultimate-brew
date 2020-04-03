@@ -1,15 +1,34 @@
-import { Howl } from 'howler';
+import { Howl, Howler } from 'howler';
 
-const sound = new Howl({
-  src: ['bing.webm', 'bing.mp3'],
-  onplayerror: () => {
-    sound.once('unlock', () => {
-      sound.play();
-    });
+let sound;
+
+function initSound() {
+  sound = new Howl({
+    src: ['bing.webm', 'bing.mp3']
+  });
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    if (sound) {
+      Howler.unload();
+      sound = null;
+    }
+
+    initSound();
   }
 });
 
+initSound();
+
 export function play() {
-  sound.stop();
+  if (!sound) {
+    initSound();
+  }
+
+  if (sound.playing()) {
+    sound.stop();
+  }
+
   sound.play();
 }
