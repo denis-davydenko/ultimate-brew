@@ -8,36 +8,61 @@
 
 <style type="text/postcss">
   .app {
-    max-width: var(--max-width);
-    max-height: var(--max-height);
-    height: calc(var(--max-width) / var(--display-ratio));
-    width: var(--max-width);
+    max-width: calc(var(--max-width) - 2rem);
+    max-height: calc(var(--max-height) - 4rem);
+    height: calc(var(--max-width) / var(--display-ratio) - 4rem);
+    width: calc(var(--max-width) - 2rem);
     margin: 0 auto;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 13rem 1fr auto;
+    grid-template-areas: 'header' 'main' 'steps' 'actions';
+    grid-row-gap: 2rem;
+    grid-column-gap: 1rem;
 
-    &__header {
-      text-align: center;
-      margin-bottom: 2rem;
+    @media screen and (orientation: landscape) {
+      grid-template-rows: 1fr auto;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'main steps' 'actions actions';
+      grid-column-gap: 1rem;
+
+      &__header {
+        display: none;
+      }
     }
 
-    &__timer,
-    &__settings {
-      flex: 0 0 13rem;
+    @media screen and (height >= 400px) and (orientation: landscape) {
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'header header' 'main steps' 'actions actions';
+      grid-column-gap: 1rem;
+
+      &__header {
+        display: initial;
+      }
+    }
+
+    &__header {
+      grid-area: header;
+      text-align: center;
+    }
+
+    &__main {
+      grid-area: main;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     &__steps {
-      flex: 1;
-      margin-top: 2rem;
+      max-height: 100%;
+      grid-area: steps;
+      align-self: center;
       overflow-y: scroll;
     }
 
     &__actions {
-      margin-top: 2rem;
+      grid-area: actions;
       text-align: center;
     }
   }
@@ -47,16 +72,14 @@
   <header class="app__header">
     <h1>Ultimate Brew</h1>
   </header>
-  {#if $appState === AppState.idle}
-    <div class="app__settings">
+  <div class="app__main">
+    {#if $appState === AppState.idle}
       <Settings />
-    </div>
-  {/if}
-  {#if $appState === AppState.brewing}
-    <div class="app__timer">
+    {/if}
+    {#if $appState === AppState.brewing}
       <BrewTimer />
-    </div>
-  {/if}
+    {/if}
+  </div>
 
   <div class="app__steps">
     <Steps />

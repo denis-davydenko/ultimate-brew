@@ -16,21 +16,26 @@
   --background: var(--main);
   --text-color: var(--primary);
 
-  @media (width >= 375px) {
+  @media screen and (width >= 375px) and (orientation: portrait) {
     --font-size: 11px;
   }
 
-  @media (width >= 414px) {
+  @media screen and (width >= 414px) and (orientation: portrait) {
     --font-size: 12px;
   }
 
-  @media (width >= 600px) {
+  @media screen and (width >= 600px) and (orientation: portrait) {
+    --font-size: 13px;
     --max-width: 600px;
-    --font-size: 14px;
   }
 
-  @media (width >= 800px) {
-    --font-size: 16px;
+  @media screen and (width >= 800px) and (orientation: landscape) {
+    --font-size: 13px;
+    --max-width: 800px;
+  }
+
+  @media screen and (width >= 1024) and (orientation: landscape) {
+    --font-size: 14px;
   }
 }
 
@@ -45,8 +50,8 @@ html {
 body {
   padding: 0;
   margin: 0;
-  max-height: var(--max-height);
-  min-height: var(--max-height);
+  max-height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
