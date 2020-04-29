@@ -62,9 +62,9 @@
       <input
         id="coffee"
         class="input settings-row__input"
-        min={0}
-        max={100}
-        type="number"
+        type="text"
+        inputmode="numeric"
+        pattern="[0-9]*"
         value={$settings.coffee}
         on:input={e => settings.updateCoffee(e.target.value)}
       />
@@ -89,9 +89,9 @@
       <input
         id="water"
         class="input settings-row__input"
-        min={0}
-        max={1000}
-        type="number"
+        type="text"
+        inputmode="numeric"
+        pattern="[0-9]*"
         value={$settings.water}
         on:input={e => settings.updateWater(e.target.value)}
       />
