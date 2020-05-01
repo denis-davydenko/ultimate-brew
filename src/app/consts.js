@@ -6,9 +6,6 @@ export const RECIPE_KEY = 'recipe';
 
 export const RATIO = 1 / 16.666667;
 
-export const AMOUNT_PLACEHOLDER = '{amount}';
+export const ONE_SEC = 1000;
 
-export const BrewingState = {
-  idle: 'idle',
-  brewing: 'brewing'
-};
+export const AMOUNT_PLACEHOLDER = '{amount}';

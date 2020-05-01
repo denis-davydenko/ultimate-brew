@@ -1,3 +1,5 @@
+import { ONE_SEC } from '../consts';
+
 export const createTimer = (seconds, update, finish) => {
   let startTime, duration, frame;
 
@@ -19,7 +21,7 @@ export const createTimer = (seconds, update, finish) => {
     let elapsed = time - startTime;
 
     if (elapsed <= duration) {
-      update(elapsed / 1000);
+      update(elapsed / ONE_SEC);
       frame = requestAnimationFrame(step);
     } else {
       init(duration);
@@ -27,16 +29,16 @@ export const createTimer = (seconds, update, finish) => {
     }
   };
 
-  init(seconds * 1000);
+  init(seconds * ONE_SEC);
 
   return {
-    reset: seconds => init(seconds ? seconds * 1000 : duration),
+    reset: seconds => init(seconds ? seconds * ONE_SEC : duration),
     elapsed: () =>
       Math.min(
-        duration / 1000,
+        duration / ONE_SEC,
         startTime === null
-          ? duration / 1000
-          : (performance.now() - startTime) / 1000
+          ? duration / ONE_SEC
+          : (performance.now() - startTime) / ONE_SEC
       ),
     start: () => {
       startTime = performance.now();

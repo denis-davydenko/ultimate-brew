@@ -1,7 +1,7 @@
 {
   "name": "ultimate-brew",
   "version": "1.0.0",
-  "description": "App for brewing V60",
+  "description": "App for brewing a perfect cup of coffee",
   "main": "index.js",
   "scripts": {
     "start": "parcel serve src/index.html --open",
@@ -26,11 +26,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.4",
-    "awsm.css": "^3.0.4",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
+    "modern-css-reset": "^1.1.0",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-static-files-copy": "^2.3.1",
@@ -40,6 +40,7 @@
     "postcss-load-config": "^2.1.0",
     "postcss-media-minmax": "^4.0.0",
     "postcss-nested": "^4.2.1",
+    "postcss-viewport-height-correction": "^1.0.3",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.18.1",
@@ -62,7 +63,7 @@
     "globPatterns": [
       "**/*.{html,js,css,jpg,png,webp,mp3,webm}"
     ],
-    "inDev": true,
+    "inDev": false,
     "strategy": "default"
   },
   "staticFiles": {

@@ -1,13 +1,10 @@
 <script>
-  import { brewingState } from './store';
-  import { BrewingState } from './consts';
+  import { appState, AppState } from './store';
 </script>
 
-<div>
-  {#if $brewingState === BrewingState.idle}
-    <button on:click={brewingState.start}>Brew! ☕</button>
-  {/if}
-  {#if $brewingState === BrewingState.brewing}
-    <button on:click={brewingState.cancel}>Cancel</button>
-  {/if}
-</div>
+{#if $appState === AppState.idle}
+  <button class="button" on:click={appState.brew}>Brew!</button>
+{/if}
+{#if $appState === AppState.brewing}
+  <button class="button" on:click={appState.stop}>Cancel</button>
+{/if}

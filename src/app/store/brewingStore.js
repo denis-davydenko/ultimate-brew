@@ -1,23 +1,11 @@
-import { writable, derived } from 'svelte/store';
-import { BrewingState } from '../consts';
+import { derived } from 'svelte/store';
+import { appState, AppState } from './appStateStore';
 import { activeStepIndex, steps } from './stepsStore';
 import { createTimer } from '../utils';
 
-function createBrewingState() {
-  const { subscribe, set } = writable(BrewingState.idle);
-
-  return {
-    subscribe,
-    start: () => set(BrewingState.brewing),
-    cancel: () => set(BrewingState.idle)
-  };
-}
-
-export const brewingState = createBrewingState();
-
-export const timerState = derived(
-  [brewingState, steps],
-  ([$brewingState, $steps], set) => {
+export const brewingState = derived(
+  [appState, steps],
+  ([$appState, $steps], set) => {
     const timer = createTimer(0, emit, nextStep);
     let currentStep = null;
 
@@ -32,7 +20,7 @@ export const timerState = derived(
       } else {
         activeStepIndex.set(null);
         currentStep = null;
-        brewingState.cancel();
+        appState.stop();
         return;
       }
 
@@ -79,12 +67,12 @@ export const timerState = derived(
       timer.reset(0);
     }
 
-    switch ($brewingState) {
-      case BrewingState.brewing: {
+    switch ($appState) {
+      case AppState.brewing: {
         brew();
         break;
       }
-      case BrewingState.idle: {
+      case AppState.idle: {
         reset();
         break;
       }
