@@ -7,7 +7,7 @@
   .timer {
     display: flex;
     align-items: center;
-    background: var(--primary);
+    background: var(--accent);
     border-radius: var(--border-radius);
     padding: 0.7rem 0;
     position: relative;

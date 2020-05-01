@@ -12,9 +12,9 @@
   --coffee-color: #7f7571;
   --white-color: #f5f5f5;
   --main: var(--coffee-color);
-  --primary: var(--white-color);
+  --accent: var(--white-color);
   --background: var(--main);
-  --text-color: var(--primary);
+  --text-color: var(--accent);
 
   @media screen and (width >= 375px) and (orientation: portrait) {
     --font-size: 11px;
@@ -79,28 +79,28 @@ h1 {
   font-weight: 500;
   border: 1px solid transparent;
   border-radius: var(--border-radius);
-  background: var(--primary);
+  background: var(--accent);
   color: var(--main);
   text-align: center;
   cursor: pointer;
 
   &:hover {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--accent);
     background: var(--main);
-    color: var(--primary);
+    color: var(--accent);
   }
 
   &:focus {
     background: var(--main);
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    box-shadow: 0 0 0 1px var(--primary);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
   }
 
   &:active {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--accent);
     background: var(--main);
-    color: var(--primary);
+    color: var(--accent);
   }
 
   &--no-horizontal-padding {
@@ -115,12 +115,12 @@ h1 {
   padding: 0.4rem 0.8rem;
   font-size: inherit;
   font-weight: 500;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--accent);
   border-radius: var(--border-radius);
   display: block;
   width: auto;
   text-align: center;
-  background: var(--primary);
+  background: var(--accent);
   color: var(--main);
   cursor: pointer;
   background-position: top 55% right 0.35em;
@@ -132,7 +132,7 @@ h1 {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Cpath fill='rgb(127, 117, 113)' fill-rule='nonzero' d='M1.5 2L3 0H0z'/%3E%3C/svg%3E");
 
   &:hover {
-    color: var(--primary);
+    color: var(--accent);
     background: var(--main);
     background-position: top 55% right 0.35em;
     background-size: 0.5em;
@@ -141,7 +141,7 @@ h1 {
   }
 
   &:focus {
-    box-shadow: 0 0 0 1px var(--primary);
+    box-shadow: 0 0 0 1px var(--accent);
   }
 
   &:active {
@@ -156,10 +156,10 @@ h1 {
   margin: 0;
   padding: 0.4rem 0.8rem;
   font-size: inherit;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--accent);
   border-radius: var(--border-radius);
   background: var(--main);
-  color: var(--primary);
+  color: var(--accent);
   display: block;
   width: 100%;
   -webkit-appearance: none;
@@ -169,6 +169,6 @@ h1 {
   &:hover,
   &:focus,
   &:active {
-    box-shadow: 0 0 0 1px var(--primary);
+    box-shadow: 0 0 0 1px var(--accent);
   }
 }

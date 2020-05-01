@@ -20,8 +20,8 @@
     activeStepTextStyle = '';
   $: {
     if ($progress != null) {
-      activeStepStyle = `background-image: linear-gradient(90deg, var(--primary) ${$progress}%, transparent ${$progress}%)`;
-      activeStepTextStyle = `background-image: linear-gradient(90deg, var(--main) ${$progress}%, var(--primary) ${$progress}%)`;
+      activeStepStyle = `background-image: linear-gradient(90deg, var(--accent) ${$progress}%, transparent ${$progress}%)`;
+      activeStepTextStyle = `background-image: linear-gradient(90deg, var(--main) ${$progress}%, var(--accent) ${$progress}%)`;
     } else {
       activeStepStyle = activeStepTextStyle = '';
     }
@@ -45,25 +45,25 @@
   .step {
     background: transparent;
     border: 1px solid transparent;
-    background-image: linear-gradient(90deg, var(--primary) 0%, transparent 0%);
+    background-image: linear-gradient(90deg, var(--accent) 0%, transparent 0%);
 
     &__text {
       display: block;
       padding: 0.4rem 0.8rem;
       text-align: center;
       width: 100%;
-      background: var(--primary);
+      background: var(--accent);
       color: transparent;
       background-clip: text;
       background-image: linear-gradient(
         90deg,
         var(--main) 0%,
-        var(--primary) 0%
+        var(--accent) 0%
       );
     }
 
     &--active {
-      border: 1px solid var(--primary);
+      border: 1px solid var(--accent);
       border-radius: var(--border-radius);
 
       .step__text {
