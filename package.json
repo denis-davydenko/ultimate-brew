@@ -2,6 +2,9 @@
   "name": "ultimate-brew",
   "version": "1.0.0",
   "description": "App for brewing a perfect cup of coffee",
+  "engines": {
+    "node": "22.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "parcel serve src/index.html --open",
