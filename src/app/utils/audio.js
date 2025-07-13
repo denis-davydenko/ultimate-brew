@@ -1,34 +1,60 @@
 import { Howl, Howler } from 'howler';
 
-let sound;
+let sound = null;
 
 function initSound() {
-  sound = new Howl({
-    src: ['bing.webm', 'bing.mp3']
+  const howl = new Howl({
+    src: ['bing.webm', 'bing.mp3'],
+    html5: false
+  });
+
+  return new Promise((resolve, reject) => {
+    howl.once('load', () => {
+      resolve(howl);
+    });
+
+    howl.once('loaderror', () => {
+      reject();
+    });
   });
 }
 
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible') {
-    if (sound) {
-      Howler.unload();
-      sound = null;
-    }
-
-    initSound();
-  }
-});
-
-initSound();
-
-export function play() {
-  if (!sound) {
-    initSound();
-  }
-
+function play() {
   if (sound.playing()) {
     sound.stop();
   }
 
   sound.play();
 }
+
+function stop() {
+  if (sound) {
+    sound.stop();
+  }
+}
+
+export async function playSound() {
+  stop();
+
+  if (!sound) {
+    sound = await initSound();
+  }
+
+  const isHowlerPaused =
+    Howler.ctx &&
+    (Howler.ctx.state === 'suspended' || Howler.ctx.state === 'interrupted');
+
+  if (isHowlerPaused) {
+    Howler.ctx.resume().then(() => {
+      play();
+    });
+  } else {
+    play();
+  }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stop();
+  }
+});

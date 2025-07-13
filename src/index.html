@@ -3,7 +3,7 @@
   <head>
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta charset="utf8" />
-    <meta name="theme-color" content="#fbecda" />
+    <meta name="theme-color" content="#7f7571" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
@@ -32,18 +32,20 @@
     <script defer src="./index.js"></script>
     <script>
       if ('serviceWorker' in navigator) {
-        const x = 'sw.js';
-        navigator.serviceWorker
-          .register(x)
-          .then(registration => {
-            console.log(
-              'Registration successful, scope is:',
-              registration.scope
-            );
-          })
-          .catch(error => {
-            console.log('Service worker registration failed, error:', error);
-          });
+        window.addEventListener('load', () => {
+          const x = 'sw.js';
+          navigator.serviceWorker
+            .register(x)
+            .then(registration => {
+              console.log(
+                'Registration successful, scope is:',
+                registration.scope
+              );
+            })
+            .catch(error => {
+              console.log('Service worker registration failed, error:', error);
+            });
+        });
       }
     </script>
   </body>

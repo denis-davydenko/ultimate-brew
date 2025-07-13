@@ -2,7 +2,7 @@ import { derived, writable } from 'svelte/store';
 import { settings } from './settingsStore';
 import { selectedRecipe } from './recipeStore';
 import { AMOUNT_PLACEHOLDER } from '../consts';
-import { play } from '../utils';
+import { playSound } from '../utils';
 
 function formatMessage(step, settings) {
   return step.message.replace(
@@ -49,10 +49,10 @@ export const activeStep = derived(
   }
 );
 
-activeStepIndex.subscribe(index => {
+activeStepIndex.subscribe(async index => {
   if (index == null) {
     return;
   }
 
-  play();
+  await playSound();
 });

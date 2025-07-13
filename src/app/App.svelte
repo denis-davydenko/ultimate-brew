@@ -1,9 +1,41 @@
 <script>
+  import { onMount } from 'svelte';
   import Settings from './Settings.svelte';
   import Steps from './Steps.svelte';
   import BrewTimer from './BrewTimer.svelte';
   import Actions from './Actions.svelte';
   import { appState, AppState } from './store';
+  import { requestWakeLock, releaseWakeLock } from './utils';
+
+  onMount(() => {
+    const unsubscribe = appState.subscribe(async state => {
+      try {
+        if (state === AppState.brewing) {
+          await requestWakeLock();
+        } else if (state === AppState.idle) {
+          await releaseWakeLock();
+        }
+      } catch (error) {
+        console.error('Wake lock operation failed:', error);
+      }
+    });
+
+    const handleVisibilityChange = async () => {
+      if (
+        document.visibilityState === 'visible' &&
+        $appState === AppState.brewing
+      ) {
+        await requestWakeLock();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      unsubscribe();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  });
 </script>
 
 <style type="text/postcss">
