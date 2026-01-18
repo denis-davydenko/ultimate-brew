@@ -3,7 +3,7 @@
   import { formatTime, formatAmount } from './utils';
 </script>
 
-<style type="text/postcss">
+<style>
   .timer {
     display: flex;
     align-items: center;
@@ -11,55 +11,55 @@
     border-radius: var(--border-radius);
     padding: 0.7rem 0;
     position: relative;
+  }
 
-    &__info {
-      flex: 1;
+  .timer__info {
+    flex: 1;
+  }
 
-      &--now {
-        text-align: right;
-        border-right: 1px solid var(--main);
-      }
-    }
+  .timer__info--now {
+    text-align: right;
+    border-right: 1px solid var(--main);
+  }
 
-    &__legend-container {
-      position: absolute;
-      right: 0.4rem;
-      bottom: 1.1rem;
-      display: flex;
-      flex-direction: column;
-    }
+  .timer__legend-container {
+    position: absolute;
+    right: 0.4rem;
+    bottom: 1.1rem;
+    display: flex;
+    flex-direction: column;
+  }
 
-    &__legend {
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--main);
-      text-align: right;
+  .timer__legend {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--main);
+    text-align: right;
+  }
 
-      &--min {
-        margin-top: 1.7rem;
-      }
-    }
+  .timer__legend--min {
+    margin-top: 1.7rem;
   }
 
   .timer-info {
     color: var(--main);
     font-weight: 500;
     padding: 0 1rem;
+  }
 
-    &__legend {
-      width: 100%;
-      font-size: 1.6rem;
-    }
+  .timer-info__legend {
+    width: 100%;
+    font-size: 1.6rem;
+  }
 
-    &__amount {
-      font-family: var(--font-mono);
-      font-size: 3.6rem;
-    }
+  .timer-info__amount {
+    font-family: var(--font-mono);
+    font-size: 3.6rem;
+  }
 
-    &__time {
-      font-family: var(--font-mono);
-      font-size: 2.6rem;
-    }
+  .timer-info__time {
+    font-family: var(--font-mono);
+    font-size: 2.6rem;
   }
 </style>
 

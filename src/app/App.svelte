@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import Settings from './Settings.svelte';
   import Steps from './Steps.svelte';
   import BrewTimer from './BrewTimer.svelte';
@@ -38,7 +39,7 @@
   });
 </script>
 
-<style type="text/postcss">
+<style>
   .app {
     max-width: calc(var(--max-width) - 2rem);
     max-height: calc(var(--max-height) - 4rem);
@@ -51,51 +52,63 @@
     grid-template-areas: 'header' 'main' 'steps' 'actions';
     grid-row-gap: 2rem;
     grid-column-gap: 1rem;
+  }
 
-    @media screen and (orientation: landscape) {
+  .app__header {
+    grid-area: header;
+    text-align: center;
+  }
+
+  .app__main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .app__main > div {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .app__steps {
+    max-height: 100%;
+    grid-area: steps;
+    align-self: center;
+    overflow-y: auto;
+  }
+
+  .app__actions {
+    grid-area: actions;
+    text-align: center;
+  }
+
+  @media screen and (orientation: landscape) {
+    .app {
       grid-template-rows: 1fr auto;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'main steps' 'actions actions';
       grid-column-gap: 1rem;
-
-      &__header {
-        display: none;
-      }
     }
 
-    @media screen and (height >= 400px) and (orientation: landscape) {
+    .app__header {
+      display: none;
+    }
+  }
+
+  @media screen and (height >= 400px) and (orientation: landscape) {
+    .app {
       grid-template-rows: auto 1fr auto;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'header header' 'main steps' 'actions actions';
       grid-column-gap: 1rem;
-
-      &__header {
-        display: initial;
-      }
     }
 
-    &__header {
-      grid-area: header;
-      text-align: center;
-    }
-
-    &__main {
-      grid-area: main;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    &__steps {
-      max-height: 100%;
-      grid-area: steps;
-      align-self: center;
-      overflow-y: scroll;
-    }
-
-    &__actions {
-      grid-area: actions;
-      text-align: center;
+    .app__header {
+      display: initial;
     }
   }
 </style>
@@ -106,10 +119,14 @@
   </header>
   <div class="app__main">
     {#if $appState === AppState.idle}
-      <Settings />
+      <div in:fade={{ duration: 400 }} out:fade={{ duration: 300 }}>
+        <Settings />
+      </div>
     {/if}
     {#if $appState === AppState.brewing}
-      <BrewTimer />
+      <div in:fade={{ duration: 400 }} out:fade={{ duration: 300 }}>
+        <BrewTimer />
+      </div>
     {/if}
   </div>
 

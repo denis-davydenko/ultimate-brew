@@ -1,8 +1,0 @@
-{
-  "singleQuote": true,
-  "tabWidth": 2,
-  "svelteSortOrder": "scripts-styles-markup",
-  "svelteStrictMode": false,
-  "svelteBracketNewLine": true,
-  "svelteAllowShorthand": true
-}

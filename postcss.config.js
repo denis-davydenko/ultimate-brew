@@ -1,13 +1,8 @@
-const autoprefixer = require('autoprefixer');
-const postcssNested = require('postcss-nested');
-const postcssMediaMinMax = require('postcss-media-minmax');
-const postcssViewportHeightCorrection = require('postcss-viewport-height-correction');
+import autoprefixer from 'autoprefixer';
+import postcssNested from 'postcss-nested';
+import postcssMediaMinMax from 'postcss-media-minmax';
+import postcssViewportHeightCorrection from 'postcss-viewport-height-correction';
 
-const plugins = [
-  postcssNested,
-  postcssMediaMinMax,
-  postcssViewportHeightCorrection,
-  autoprefixer
-];
-
-module.exports = { plugins };
+export default {
+  plugins: [postcssNested, postcssMediaMinMax, postcssViewportHeightCorrection, autoprefixer]
+};

@@ -1,9 +1,11 @@
+import './css/styles.css';
+import { mount } from 'svelte';
 import App from './app/App.svelte';
 
 function setViewportProperty(doc) {
-  var prevClientHeight;
+  let prevClientHeight;
   function handleResize() {
-    var clientHeight = doc.clientHeight;
+    const clientHeight = doc.clientHeight;
     if (clientHeight === prevClientHeight) return;
     requestAnimationFrame(function updateViewportHeight() {
       doc.style.setProperty('--vh', clientHeight * 0.01 + 'px');
@@ -19,8 +21,4 @@ window.addEventListener(
   setViewportProperty(document.documentElement)
 );
 
-const app = new App({
-  target: document.body
-});
-
-export default app;
+mount(App, { target: document.body });

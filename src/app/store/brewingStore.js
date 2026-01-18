@@ -64,7 +64,7 @@ export const brewingState = derived(
     function reset() {
       activeStepIndex.set(null);
       currentStep = null;
-      timer.reset(0);
+      timer.cancel();
     }
 
     switch ($appState) {

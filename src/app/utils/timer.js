@@ -2,6 +2,7 @@ import { ONE_SEC } from '../consts';
 
 export const createTimer = (seconds, update, finish) => {
   let startTime, duration, frame;
+  let cancelled = false;
 
   const init = millis => {
     if (frame) {
@@ -14,7 +15,7 @@ export const createTimer = (seconds, update, finish) => {
   };
 
   const step = time => {
-    if (startTime === null) {
+    if (startTime === null || cancelled) {
       return;
     }
 
@@ -32,7 +33,15 @@ export const createTimer = (seconds, update, finish) => {
   init(seconds * ONE_SEC);
 
   return {
-    reset: seconds => init(seconds ? seconds * ONE_SEC : duration),
+    cancel: () => {
+      cancelled = true;
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = null;
+      }
+      startTime = null;
+    },
+    reset: seconds => init(seconds != null ? seconds * ONE_SEC : duration),
     elapsed: () =>
       Math.min(
         duration / ONE_SEC,

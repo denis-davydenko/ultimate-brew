@@ -35,7 +35,7 @@
   }
 </script>
 
-<style type="text/postcss">
+<style>
   .steps {
     display: flex;
     flex-direction: column;
@@ -46,30 +46,30 @@
     background: transparent;
     border: 1px solid transparent;
     background-image: linear-gradient(90deg, var(--accent) 0%, transparent 0%);
+  }
 
-    &__text {
-      display: block;
-      padding: 0.4rem 0.8rem;
-      text-align: center;
-      width: 100%;
-      background: var(--accent);
-      color: transparent;
-      background-clip: text;
-      background-image: linear-gradient(
-        90deg,
-        var(--main) 0%,
-        var(--accent) 0%
-      );
-    }
+  .step__text {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    width: 100%;
+    background: var(--accent);
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(
+      90deg,
+      var(--main) 0%,
+      var(--accent) 0%
+    );
+  }
 
-    &--active {
-      border: 1px solid var(--accent);
-      border-radius: var(--border-radius);
+  .step--active {
+    border: 1px solid var(--accent);
+    border-radius: var(--border-radius);
+  }
 
-      .step__text {
-        font-weight: 500;
-      }
-    }
+  .step--active .step__text {
+    font-weight: 500;
   }
 </style>
 
