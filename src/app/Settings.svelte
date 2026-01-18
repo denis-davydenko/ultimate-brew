@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 12.4rem;
   }
 
   .settings__row {

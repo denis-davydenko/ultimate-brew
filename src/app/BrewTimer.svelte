@@ -11,6 +11,7 @@
     border-radius: var(--border-radius);
     padding: 0.7rem 0;
     position: relative;
+    min-height: 12.4rem;
   }
 
   .timer__info {
